@@ -1,12 +1,18 @@
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { FlatCompat } from '@eslint/eslintrc';
 import js from '@eslint/js';
-import react from 'eslint-plugin-react';
-import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import globals from 'globals';
 
+const compat = new FlatCompat({
+  baseDirectory: path.dirname(fileURLToPath(import.meta.url)),
+  recommendedConfig: js.configs.recommended,
+});
+
 export default [
   { ignores: ['dist', 'node_modules'] },
-  js.configs.recommended,
+  ...compat.extends('airbnb', 'airbnb/hooks'),
   {
     files: ['**/*.{js,jsx}'],
     languageOptions: {
@@ -21,30 +27,26 @@ export default [
       },
     },
     plugins: {
-      react,
-      'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
     },
     settings: {
       react: { version: 'detect' },
     },
     rules: {
-      ...react.configs.recommended.rules,
-      ...reactHooks.configs.recommended.rules,
-
-      // Airbnb-influenced style conventions
-      indent: ['warn', 2, { SwitchCase: 1 }],
-      quotes: ['warn', 'single', { avoidEscape: true }],
-      semi: ['error', 'always'],
-      'comma-dangle': ['warn', 'always-multiline'],
-      'max-len': ['off'],
-      'arrow-body-style': ['off'],
-      'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
-      'no-console': ['warn', { allow: ['warn', 'error'] }],
       'react/react-in-jsx-scope': 'off',
-      'react/prop-types': 'warn',
-      'react/jsx-uses-react': 'off',
+      'react/jsx-filename-extension': ['warn', { extensions: ['.jsx'] }],
       'react-refresh/only-export-components': 'off',
+      'import/prefer-default-export': 'off',
+      'import/no-default-export': 'off',
+      'no-param-reassign': ['error', { props: true, ignorePropertyModificationsFor: ['state'] }],
+      'no-console': ['warn', { allow: ['warn', 'error'] }],
+    },
+  },
+  {
+    files: ['eslint.config.js', 'vite.config.js'],
+    rules: {
+      'import/no-extraneous-dependencies': 'off',
+      'import/no-unresolved': 'off',
     },
   },
 ];

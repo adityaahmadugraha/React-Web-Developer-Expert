@@ -24,7 +24,9 @@ function VoteButtons({
         aria-pressed={hasUpVoted}
         title={disabled ? 'Masuk untuk memberi vote' : 'Upvote'}
       >
-        ▲ {upVotesBy.length}
+        ▲
+        {' '}
+        {upVotesBy.length}
       </button>
       <button
         type="button"
@@ -34,7 +36,9 @@ function VoteButtons({
         aria-pressed={hasDownVoted}
         title={disabled ? 'Masuk untuk memberi vote' : 'Downvote'}
       >
-        ▼ {downVotesBy.length}
+        ▼
+        {' '}
+        {downVotesBy.length}
       </button>
     </div>
   );

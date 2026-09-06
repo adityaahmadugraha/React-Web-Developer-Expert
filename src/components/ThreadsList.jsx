@@ -28,10 +28,20 @@ function ThreadsList({ threads, users }) {
 }
 
 ThreadsList.propTypes = {
-   
-  threads: PropTypes.array.isRequired,
-   
-  users: PropTypes.array.isRequired,
+  threads: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string,
+    title: PropTypes.string,
+    body: PropTypes.string,
+    category: PropTypes.string,
+    createdAt: PropTypes.string,
+    totalComments: PropTypes.number,
+    ownerId: PropTypes.string,
+  })).isRequired,
+  users: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string,
+    name: PropTypes.string,
+    avatar: PropTypes.string,
+  })).isRequired,
 };
 
 export default ThreadsList;

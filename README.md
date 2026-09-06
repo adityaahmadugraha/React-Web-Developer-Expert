@@ -27,9 +27,10 @@ src/
   main.jsx       Bootstrap: Provider, BrowserRouter, StrictMode
 ```
 
-## Pemetaan ke kriteria submission
+## kriteria submission
 
 **Fungsionalitas**
+
 - Daftar & login akun -> `pages/RegisterPage.jsx`, `pages/LoginPage.jsx`
 - Daftar thread + filter kategori (client-side) -> `pages/HomePage.jsx`
 - Detail thread + komentar -> `pages/ThreadDetailPage.jsx`
@@ -38,6 +39,7 @@ src/
 - Loading indicator -> `components/LoadingBar.jsx` + slice `states/loading`
 
 **Arsitektur**
+
 - Data dari API hidup di Redux store; hanya form input yang mengelola
   state lokal sendiri (`useState` di halaman login/register/buat thread)
 - Panggilan REST API hanya terjadi di dalam thunk (`states/*/thunk.js`),
@@ -48,6 +50,7 @@ src/
   di beberapa halaman
 
 **Bugs highlighting**
+
 - ESLint (flat config, `eslint.config.js`) dengan `eslint-plugin-react`
   dan `eslint-plugin-react-hooks`, memakai konvensi bergaya Airbnb
   JavaScript Style Guide (2 spasi indentasi, single quotes, wajib

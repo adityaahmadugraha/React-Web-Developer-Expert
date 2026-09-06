@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
 import CommentItem from './CommentItem';
 
-function CommentsList({ comments, currentUserId, onVoteComment, canVote }) {
+function CommentsList({
+  comments, currentUserId, onVoteComment, canVote,
+}) {
   if (comments.length === 0) {
     return <p className="empty-state">Belum ada komentar. Jadilah yang pertama!</p>;
   }
@@ -26,8 +28,17 @@ function CommentsList({ comments, currentUserId, onVoteComment, canVote }) {
 }
 
 CommentsList.propTypes = {
-   
-  comments: PropTypes.array.isRequired,
+  comments: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string,
+    content: PropTypes.string,
+    createdAt: PropTypes.string,
+    owner: PropTypes.shape({
+      name: PropTypes.string,
+      avatar: PropTypes.string,
+    }),
+    upVotesBy: PropTypes.arrayOf(PropTypes.string),
+    downVotesBy: PropTypes.arrayOf(PropTypes.string),
+  })).isRequired,
   currentUserId: PropTypes.string,
   onVoteComment: PropTypes.func.isRequired,
   canVote: PropTypes.bool,
