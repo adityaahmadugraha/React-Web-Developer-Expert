@@ -2,7 +2,6 @@ import api from '../../utils/api';
 import { showLoading, hideLoading } from '../loading/reducer';
 import { setAuthUser, unsetAuthUser } from './reducer';
 
-// Called once on app start: checks for an existing token and restores the session.
 function asyncPreloadAuthUser() {
   return async (dispatch) => {
     dispatch(showLoading());
@@ -13,7 +12,6 @@ function asyncPreloadAuthUser() {
         dispatch(setAuthUser(user));
       }
     } catch {
-      // Invalid/expired token: clear it silently and treat as logged out.
       api.removeAccessToken();
       dispatch(unsetAuthUser());
     } finally {

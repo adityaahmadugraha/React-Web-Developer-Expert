@@ -16,7 +16,6 @@ const threadsSlice = createSlice({
     setActiveCategory: (state, action) => {
       state.activeCategory = action.payload;
     },
-    // Optimistic vote update so the UI reacts instantly, before the API confirms it.
     applyThreadVote: (state, action) => {
       const { threadId, userId, voteType } = action.payload;
       const thread = state.items.find((item) => item.id === threadId);
@@ -29,7 +28,6 @@ const threadsSlice = createSlice({
   },
 });
 
-export const {
-  receiveThreads, addThread, setActiveCategory, applyThreadVote,
-} = threadsSlice.actions;
+export const { receiveThreads, addThread, setActiveCategory, applyThreadVote } =
+  threadsSlice.actions;
 export default threadsSlice.reducer;

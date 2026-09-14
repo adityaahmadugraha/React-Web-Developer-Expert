@@ -11,7 +11,7 @@ const compat = new FlatCompat({
 });
 
 export default [
-  { ignores: ['dist', 'node_modules'] },
+  { ignores: ['dist', 'node_modules', 'playwright-report', 'test-results'] },
   ...compat.extends('airbnb', 'airbnb/hooks'),
   {
     files: ['**/*.{js,jsx}'],
@@ -38,12 +38,22 @@ export default [
       'react-refresh/only-export-components': 'off',
       'import/prefer-default-export': 'off',
       'import/no-default-export': 'off',
-      'no-param-reassign': ['error', { props: true, ignorePropertyModificationsFor: ['state'] }],
+      'no-param-reassign': [
+        'error',
+        { props: true, ignorePropertyModificationsFor: ['state'] },
+      ],
       'no-console': ['warn', { allow: ['warn', 'error'] }],
+      'react/jsx-props-no-spreading': 'off',
     },
   },
   {
-    files: ['eslint.config.js', 'vite.config.js'],
+    files: ['**/*.test.js', '**/*.test.jsx', 'src/test/**', 'e2e/**'],
+    rules: {
+      'import/no-extraneous-dependencies': 'off',
+    },
+  },
+  {
+    files: ['eslint.config.js', 'vite.config.js', 'playwright.config.js'],
     rules: {
       'import/no-extraneous-dependencies': 'off',
       'import/no-unresolved': 'off',
