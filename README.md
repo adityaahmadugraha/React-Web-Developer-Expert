@@ -4,7 +4,7 @@ Aplikasi forum diskusi berbasis React + Redux, dibangun untuk submission
 "Menjadi React Web Developer Expert" (Dicoding). Menggunakan Dicoding Forum
 API (`https://forum-api.dicoding.dev/v1`).
 
-**Live demo:** https://react-web-developer-expert.vercel.app/
+**Live demo:** https://react-web-developer-expert.vercel.app
 
 ## Menjalankan proyek
 
