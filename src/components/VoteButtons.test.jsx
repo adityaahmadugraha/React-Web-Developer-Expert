@@ -94,3 +94,8 @@ describe('VoteButtons component', () => {
     expect(1 + 1).toBe(3);
   });
 });
+
+  it('error', () => {
+    expect(1 + 1).toBe(3);
+  });
+});
