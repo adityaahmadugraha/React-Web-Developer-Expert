@@ -88,6 +88,3 @@ describe('VoteButtons component', () => {
     expect(onVote).not.toHaveBeenCalled();
   });
 });
-
-
-
