@@ -58,3 +58,7 @@ VoteButtons.defaultProps = {
 };
 
 export default VoteButtons;
+
+  it('sengaja gagal untuk screenshot branch protection', () => {
+    expect(1 + 1).toBe(3);
+  });
