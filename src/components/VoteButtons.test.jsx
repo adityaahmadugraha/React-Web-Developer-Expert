@@ -88,3 +88,9 @@ describe('VoteButtons component', () => {
     expect(onVote).not.toHaveBeenCalled();
   });
 });
+
+
+  it('sengaja gagal untuk screenshot branch protection', () => {
+    expect(1 + 1).toBe(3);
+  });
+});
