@@ -58,3 +58,7 @@ VoteButtons.defaultProps = {
 };
 
 export default VoteButtons;
+
+  it('screenshot CI error', () => {
+    expect(1 + 1).toBe(3);
+  });
