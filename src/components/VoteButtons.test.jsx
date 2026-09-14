@@ -89,13 +89,3 @@ describe('VoteButtons component', () => {
   });
 });
 
-
-  it('sengaja gagal untuk screenshot branch protection', () => {
-    expect(1 + 1).toBe(3);
-  });
-});
-
-  it('error', () => {
-    expect(1 + 1).toBe(3);
-  });
-});

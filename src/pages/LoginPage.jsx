@@ -22,6 +22,7 @@ function LoginPage() {
     if (result.success) {
       navigate('/');
     } else {
+      add error
       setSubmitError(result.message);
     }
   };

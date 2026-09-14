@@ -11,7 +11,6 @@ function HomePage() {
   const users = useSelector((state) => state.users);
 
   useEffect(() => {
-    // The effect only *dispatches*; the actual fetch lives inside the thunk.
     dispatch(asyncPopulateThreads());
   }, [dispatch]);
 
