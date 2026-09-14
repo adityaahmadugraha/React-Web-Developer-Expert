@@ -28,6 +28,7 @@ const threadsSlice = createSlice({
   },
 });
 
-export const { receiveThreads, addThread, setActiveCategory, applyThreadVote } =
-  threadsSlice.actions;
+export const {
+  receiveThreads, addThread, setActiveCategory, applyThreadVote,
+} = threadsSlice.actions;
 export default threadsSlice.reducer;
